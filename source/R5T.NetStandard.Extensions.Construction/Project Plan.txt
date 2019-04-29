@@ -1,0 +1,4 @@
+R5T.NetStandard.Extensions.Construction - A construction console entry-point for the R5T.NetStandard.Extensions library (A library containing extension methods to base .NET Standard functionality.).
+
+Goals
+
