@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 
 namespace R5T.NetStandard
@@ -38,6 +39,22 @@ namespace R5T.NetStandard.Extensions
 {
     public static class StringExtensions
     {
+        /// <summary>
+        /// Same as <see cref="Join(IEnumerable{string}, string)"/>.
+        /// </summary>
+        public static string Concatenate(this IEnumerable<string> strings, string separator)
+        {
+            var output = strings.Join(separator);
+            return output;
+        }
 
+        /// <summary>
+        /// The <see cref="String.Join(string, IEnumerable{string})"/> functionality as an extension method.
+        /// </summary>
+        public static string Join(this IEnumerable<string> strings, string separator)
+        {
+            var output = String.Join(separator, strings);
+            return output;
+        }
     }
 }
