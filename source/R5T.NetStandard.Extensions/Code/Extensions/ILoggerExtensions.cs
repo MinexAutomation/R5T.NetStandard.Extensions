@@ -42,9 +42,52 @@ namespace R5T.NetStandard
             log.LogInformation($@"{serviceName.ToUpperInvariant()} - Adding service...");
         }
 
+        public static void LogFunctionName(this ILogger log, string functionName)
+        {
+            log.LogInformation($@"{functionName}: Running function {functionName}.");
+        }
+
+        public static void LogInformationEmphasis(this ILogger log, string message)
+        {
+            var emphasizedMessage = $@"- {message} -";
+            log.LogInformation(emphasizedMessage);
+        }
+
+        public static void LogInformationEmphasisDouble(this ILogger log, string message)
+        {
+            var emphasizedMessage = $@"--- {message} ---";
+            log.LogInformation(emphasizedMessage);
+        }
+
+        public static void LogInformationEmphasisTriple(this ILogger log, string message)
+        {
+            var emphasizedMessage = $@"----- {message} -----";
+            log.LogInformation(emphasizedMessage);
+        }
+
+        public static void LogStart(this ILogger log)
+        {
+            log.LogInformation(@"----- START -----");
+        }
+
+        public static void LogEnd(this ILogger log)
+        {
+            log.LogInformation(@"----- END -----");
+        }
+
         public static void LogUse(this ILogger log, string serviceName)
         {
             log.LogInformation($@"{serviceName} - Using service.");
+        }
+
+        public static void LogVerifiedServiceOn<TService>(this ILogger log)
+        {
+            log.LogInformation($@"{typeof(TService).Name} - Verified service is on!");
+        }
+
+        public static void LogVerifiedServicesOn(this ILogger log)
+        {
+            log.LogInformation(@"- Verified services on. -");
         }
     }
 }

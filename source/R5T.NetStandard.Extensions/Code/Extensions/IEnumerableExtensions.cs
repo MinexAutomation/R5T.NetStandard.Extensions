@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 
 namespace R5T.NetStandard
@@ -39,6 +40,15 @@ namespace R5T.NetStandard.Extensions
             {
                 action(element);
             }
+        }
+
+        /// <summary>
+        /// Applies the specified function on each element of an enumerable.
+        /// </summary>
+        public static IEnumerable<TOut> ForEach<TIn, TOut>(this IEnumerable<TIn> source, Func<TIn, TOut> func)
+        {
+            var output = source.Select(func);
+            return output;
         }
     }
 }
